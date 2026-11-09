@@ -8,15 +8,18 @@
     "build": "tsc",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "psql \"$DATABASE_URL\" -f db/001_initial_schema.sql"
   },
   "dependencies": {
     "@fastify/cors": "latest",
     "fastify": "latest",
+    "pg": "latest",
     "zod": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
+    "@types/pg": "latest",
     "tsx": "latest",
     "typescript": "latest"
   }

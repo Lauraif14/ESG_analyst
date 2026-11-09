@@ -50,6 +50,7 @@ Business rules:
 ## Next implementation steps
 
 1. Add PostgreSQL persistence and migrations.
-2. Add authentication, role-based authorization, and review workflow.
-3. Add source documents and validation endpoints.
-4. Add calculation endpoints only after indicator formulas and production data are confirmed.
+2. Replace the in-memory store with repositories backed by the PostgreSQL schema.
+3. Add authentication, role-based authorization, and review workflow.
+4. Add source documents and validation endpoints.
+5. Add calculation endpoints only after indicator formulas and production data are confirmed.
