@@ -1,31 +1,23 @@
 # ESG Mining Intelligence System
 
-Backend MVP for managing and analyzing Environmental, Social, and Governance data for mining companies.
+Backend MVP menggunakan Python, FastAPI, dan PostgreSQL untuk mengelola data ESG perusahaan pertambangan.
 
 ## Development
 
 ```bash
-npm install
-npm run dev
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+set DATABASE_URL=postgresql://postgres:PASSWORD@localhost:5432/esg_mining
+uvicorn app.main:app --reload --port 3000
 ```
 
-The API runs on `http://localhost:3000`.
+API berjalan di `http://localhost:3000`. Dokumentasi interaktif tersedia di `/docs`.
 
-Build and type-check:
+Seed data awal:
 
 ```bash
-npm run build
-npm run typecheck
+python scripts/seed.py
 ```
 
-The current MVP uses in-memory data. See [docs/api-contract.md](docs/api-contract.md) for the API contract and next implementation steps.
-
-## PostgreSQL setup
-
-Copy `.env.example` to `.env`, set `DATABASE_URL`, and run the migration with:
-
-```bash
-npm run db:migrate
-```
-
-The server currently starts in in-memory mode when `DATABASE_URL` is not set. The PostgreSQL schema is prepared in `db/001_initial_schema.sql`; route-level repository migration is the next step.
+Schema PostgreSQL ada di [db/001_initial_schema.sql](db/001_initial_schema.sql), sedangkan kontrak endpoint ada di [docs/api-contract.md](docs/api-contract.md).
